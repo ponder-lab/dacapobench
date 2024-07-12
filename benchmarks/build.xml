@@ -94,7 +94,7 @@
         <fail message="JDK version 8 is required to build DaCapo.  You appear to be using ${java.specification.version} (${java.version}). Please set your path accordingly.">
             <condition>
                 <not>
-                    <equals arg1="${java.specification.version}" arg2="1.8"/>
+                    <equals arg1="${java.specification.version}" arg2="21"/>
                 </not>
             </condition>
         </fail>
