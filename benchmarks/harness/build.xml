@@ -134,6 +134,8 @@
         </antcall>
 
         <unzip src="${harness-downloads}/${hdrhistogram-name}" dest="${build-dir}"/>
+        
+        <patch patchfile="hdrhistogram.patch" dir="${build-dir}/HdrHistogram-HdrHistogram-${hdrhistogram-version}" ignorewhitespace="true"></patch>
 
         <property name="mvn-home" location="${toolsdir}/apache-maven-${mvn.version}/bin"/>
         <property name="mvn-exe" value="${mvn-home}/mvn"/>
