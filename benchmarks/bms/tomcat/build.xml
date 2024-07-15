@@ -29,24 +29,20 @@
 
     <target name="bm-build" depends="build-properties,commons-httpclient,dacapo-digest">
         <exec executable="ant" dir="${bm-build-top}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <arg line="download-compile"/>
         </exec>
         <ant dir="${bm-build-top}" target="download-compile">
             <property name="base.path" value="${bm-downloads}"/>
         </ant>
         <exec executable="ant" dir="${bm-build-top}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <arg line="-Dbase.path=${bm-downloads} deploy"/>
         </exec>
         <exec executable="ant" dir="${bm-build-top}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <arg line="-Dbase.path=${bm-downloads} dist-static"/>
         </exec>
         <mkdir dir="${bm-build-dir}/benchmark"/>
         <javac fork="yes" srcdir="${bm-src-dir}" destdir="${bm-build-dir}/benchmark"
-                executable="${jdk.11.home}/bin/javac"
-                release="11"
+                release="21"
                 classpath="${harness-classpath}"
                 includes="org/dacapo/tomcat/*"
                 debug="true" debuglevel="lines,vars,source">

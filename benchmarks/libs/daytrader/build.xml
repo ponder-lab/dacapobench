@@ -73,7 +73,6 @@
 
         <!-- build widlfly -->
         <exec executable="${mvn}" dir="${wf-build}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <env key="MAVEN_OPTS" value="-Xms256m -Xmx512m -XX:MaxPermSize=128m"/>
             <arg value="-Drat.ignoreErrors=true"/>
             <arg value="clean"/>
@@ -103,7 +102,7 @@
 
     <target name="build" depends="build.init,data">
         <mkdir dir="${launcher-build}/"/>
-        <javac fork="yes" executable="${jdk.11.home}/bin/javac" srcdir="${lib-src-dir}" destdir="${launcher-build}"
+        <javac fork="yes" srcdir="${lib-src-dir}" destdir="${launcher-build}"
                 classpath="${lib-build-dir}/${wildfly}/jboss-modules.jar:${harness-classpath}"
                 debug="true" debuglevel="lines,vars,source"/>
     </target>
@@ -116,7 +115,6 @@
     <target name="data" depends="build.init,wildfly.patch">
         <!-- build daytrader -->
         <exec executable="${mvn}" dir="${dt-build}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <env key="MAVEN_OPTS" value="-Xms256m -Xmx512m -XX:MaxPermSize=128m"/>
             <arg value="-Drat.ignoreErrors=true"/>
             <arg value="clean"/>

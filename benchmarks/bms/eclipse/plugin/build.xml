@@ -16,8 +16,8 @@
     <property name="javacVerbose" value="false"/>
     <property name="logExtension" value=".log"/>
     <property name="compilerArg" value=""/>
-    <property name="javacSource" value="11"/>
-    <property name="javacTarget" value="11"/>
+    <property name="javacSource" value="21"/>
+    <property name="javacTarget" value="21"/>
     <!--condition property="dir_bootclasspath" value="${java.home}/../Classes">
         <os family="mac"/>
     </condition-->
@@ -79,7 +79,7 @@
 
         <!-- compile the source code -->
         <loadproperties srcFile="../../../local.properties"/>
-        <javac verbose="no" fork="yes" executable="${jdk.11.home}/bin/javac" destdir="${build.result.folder}/@dot" release="11" failonerror="true" debug="${javacDebugInfo}" includeAntRuntime="no">
+        <javac verbose="no" fork="yes" destdir="${build.result.folder}/@dot" release="21" failonerror="true" debug="${javacDebugInfo}" includeAntRuntime="no">
             <compilerarg line="${compilerArg}" compiler="${build.compiler}"/>
             <classpath refid="@dot.classpath"/>
             <src path="src/"/>

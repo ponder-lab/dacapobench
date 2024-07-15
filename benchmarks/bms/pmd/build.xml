@@ -52,7 +52,6 @@
         </antcall>
 
         <exec executable="${mvn-exe}" dir="${bm-build-top}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <arg value="clean"/>
             <arg value="verify"/>
             <arg value="-DskipTests"/>
