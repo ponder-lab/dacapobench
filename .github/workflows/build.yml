@@ -19,8 +19,10 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Change to benchmarks directory
-      run: cd benchmarks
+    - name: Create local.properties file
+      run: |
+        echo "make=/usr/bin/make" > benchmarks/local.properties
+        echo "build.failonerror=true" >> benchmarks/local.properties
 
     - name: Build with Ant
       run: ant
