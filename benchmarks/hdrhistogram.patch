@@ -8,6 +8,21 @@
 +               <version>5.1.9</version>
                 <extensions>true</extensions>
             </plugin>
+@@ -99,14 +99,1 @@
+-           <plugin>
+-               <groupId>org.apache.maven.plugins</groupId>
+-               <artifactId>maven-javadoc-plugin</artifactId>
+-               <version>3.0.0-M1</version>
+-               <executions>
+-                   <execution>
+-                       <id>attach-javadocs</id>
+-                       <goals>
+-                           <goal>jar</goal>
+-                       </goals>
+-                   </execution>
+-               </executions>
+-           </plugin>
+            <plugin>
 @@ -125,10 +125,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
