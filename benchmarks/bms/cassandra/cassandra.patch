@@ -98,7 +98,14 @@ diff '--color=auto' -ur cassandra-1ba458c-pre-5.1/build.xml ../build/cassandra-1
  
      <!-- needed to compile org.apache.cassandra.utils.JMXServerUtils -->
      <!-- needed to compile org.apache.cassandra.distributed.impl.Instance-->
-@@ -1285,7 +1343,7 @@
+@@ -412,3 +470,5 @@
+      <java classname="org.antlr.Tool"
+            classpathref="cql3-grammar.classpath"
+-            failonerror="true">
++            failonerror="true"
++             fork="true"
++             clonevm="false">
+@@ -1285,7 +1345,7 @@
            <fileset file="${test.conf}/cassandra.yaml"/>
            <fileset file="${test.conf}/storage_compatibility_mode_none.yaml"/>
          </concat>

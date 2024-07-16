@@ -64,7 +64,6 @@
         <untar src="${bm-downloads}/${bm-src}" dest="${cassandra-build-top}" compression="gzip"/>
         <patch patchfile="${bm-files}/cassandra.patch" dir="${bm-build-dir}/${bm-name}-${bm-version}" strip="3" ignorewhitespace="yes" failonerror="true"/>
         <exec executable="ant" dir="${cassandra-build-top}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <arg line="-Drat.skip=true"/>
         </exec>
     </target>

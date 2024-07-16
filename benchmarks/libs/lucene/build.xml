@@ -29,7 +29,6 @@
 
     <target name="build" depends="make-exe">
         <exec executable="${lib-build-top}/gradlew" dir="${lib-build-top}">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <arg value=":lucene:core:jar"/>
             <arg value=":lucene:queryparser:jar"/>
             <arg value=":lucene:demo:jar"/>

@@ -94,11 +94,10 @@
         <fail message="JDK version 8 is required to build DaCapo.  You appear to be using ${java.specification.version} (${java.version}). Please set your path accordingly.">
             <condition>
                 <not>
-                    <equals arg1="${java.specification.version}" arg2="1.8"/>
+                    <equals arg1="${java.specification.version}" arg2="21"/>
                 </not>
             </condition>
         </fail>
-        <antcall target="check-java11-path"/>
 
         <!-- Checking the availability of all dependencies -->
         <check.dependency command="git"/>
@@ -109,26 +108,6 @@
         <check.dependency command="npm"/>
 
         <antcall target="check-python-modules"/>
-    </target>
-
-    <target name="check-java11-path">
-        <available property="java11" file="${jdk.11.home}/bin/javac"/>
-        <fail unless="java11" message="A valid JDK could not be found in ${jdk.11.home}/bin.   Please check that jdk.11.home is set correctly in your local.properties file."/>
-
-        <exec executable="ant" failifexecutionfails="no" failonerror="yes">
-                <env key="JAVA_HOME" value="${jdk.11.home}"/>
-                <arg value="check-java11-runtime"/>
-            </exec>
-    </target>
-
-    <target name="check-java11-runtime">
-            <fail message="The JDK specified by jdk.11.home in your local.properties file must point to an installation of Java 11.  You appear to have set jdk.11.home to point to a Java ${java.specification.version} JDK (${jdk.11.home}).  Please set the jdk.11.home variable in your local.properties file accordingly.">
-            <condition>
-                <not>
-                    <equals arg1="${java.specification.version}" arg2="11"/>
-                </not>
-            </condition>
-        </fail>
     </target>
 
     <macrodef name="check.dependency">
@@ -385,7 +364,6 @@
 
     <target name="bytecode-transformer" depends="harness-jar">
         <exec executable="${mvn-exe}" dir="${bcc-dir}" failonerror="true">
-            <env key="JAVA_HOME" value="${jdk.11.home}"/>
             <arg line="install"/>
         </exec>
         <copy file="${toolsdir}/analysis/bcc/target/BCCAgent-1.0-SNAPSHOT.jar" tofile="${build.target-jars}/bccagent.jar"/>
