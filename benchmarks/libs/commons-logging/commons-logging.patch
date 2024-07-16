@@ -28,11 +28,11 @@
  
    <!-- Version of java class files to generate. -->
 -  <property name="target.version" value="1.2"/>
-+  <property name="target.version" value="1.7"/>
++  <property name="target.version" value="21"/>
  
    <!-- Version of java source to accept -->
 -  <property name="source.version" value="1.2"/>
-+  <property name="source.version" value="1.7"/>
++  <property name="source.version" value="21"/>
  
    <!-- Should Java compilations set the 'debug' compiler option? -->
    <property name="compile.debug"           value="true"/>
